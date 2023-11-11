@@ -4,6 +4,7 @@ WORKDIR /srv
 COPY . ./
 
 # Install production dependencies.
+RUN pip install tensorflow onnxruntime numpy
 RUN pip install -r requirements.txt
 
 CMD python main.py
