@@ -1,0 +1,18 @@
+version: "3"
+services:
+  pyinfer:
+    image: pyinfer:latest
+    container_name: pyinfer
+    build:
+      context: ./srv
+    env_file:
+      - ./srv/.env
+    ports:
+      - 8000:8000
+      - 8888:8888
+    volumes:
+      - ./srv:/srv
+    working_dir: /srv
+    command: ["bash"]
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
